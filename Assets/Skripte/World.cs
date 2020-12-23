@@ -49,7 +49,11 @@ public class World : MonoBehaviour
             {
                 increase = 1.5f;
             }
-            if (counter > 10)
+            if (counter > 100)
+            {
+                increase = 2f;
+            }
+            if (counter > 200)
             {
                 increase = 3f;
             }
