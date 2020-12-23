@@ -306,6 +306,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &592291521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 592291522}
+  m_Layer: 0
+  m_Name: Teren
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &592291522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592291521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1723672068}
+  - {fileID: 1983258184}
+  - {fileID: 955097257}
+  - {fileID: 1260566646}
+  m_Father: {fileID: 1208496248}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &955097255
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +352,7 @@ GameObject:
   - component: {fileID: 955097256}
   - component: {fileID: 955097258}
   m_Layer: 0
-  m_Name: Teren (1)
+  m_Name: TerenDesno
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -384,10 +418,10 @@ Transform:
   m_GameObject: {fileID: 955097255}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 4.1865253, y: -0.033504963, z: 0.30227292}
-  m_LocalScale: {x: 1.2884698, y: 1, z: 1}
+  m_LocalScale: {x: 1.2884697, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1208496248}
-  m_RootOrder: 3
+  m_Father: {fileID: 592291522}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &955097258
 BoxCollider2D:
@@ -492,7 +526,7 @@ GameObject:
   - component: {fileID: 1057896385}
   - component: {fileID: 1057896384}
   m_Layer: 0
-  m_Name: SpaceBattle_1
+  m_Name: Music Theme
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -689,10 +723,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2015756716}
-  - {fileID: 1723672068}
-  - {fileID: 1983258184}
-  - {fileID: 955097257}
-  - {fileID: 1260566646}
+  - {fileID: 592291522}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -724,7 +755,7 @@ GameObject:
   - component: {fileID: 1260566645}
   - component: {fileID: 1260566647}
   m_Layer: 0
-  m_Name: Teren (2)
+  m_Name: TerenLevo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -790,10 +821,10 @@ Transform:
   m_GameObject: {fileID: 1260566644}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: -4.2534747, y: -0.26350498, z: 0.30227292}
-  m_LocalScale: {x: 1.2884698, y: 1, z: 1}
+  m_LocalScale: {x: 1.2884697, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1208496248}
-  m_RootOrder: 4
+  m_Father: {fileID: 592291522}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!61 &1260566647
 BoxCollider2D:
@@ -998,7 +1029,7 @@ GameObject:
   - component: {fileID: 1600883582}
   - component: {fileID: 1600883581}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1098,7 +1129,7 @@ GameObject:
   - component: {fileID: 1723672069}
   - component: {fileID: 1723672070}
   m_Layer: 0
-  m_Name: Teren
+  m_Name: TerenDole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1112,11 +1143,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723672067}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.025, y: -2.81, z: 0.30227292}
+  m_LocalPosition: {x: -0.024999976, y: -2.81, z: 0.30227292}
   m_LocalScale: {x: 1.2884672, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1208496248}
-  m_RootOrder: 1
+  m_Father: {fileID: 592291522}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1723672069
 SpriteRenderer:
@@ -1207,7 +1238,7 @@ GameObject:
   - component: {fileID: 1983258185}
   - component: {fileID: 1983258186}
   m_Layer: 0
-  m_Name: Teren (1)
+  m_Name: TerenGore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1220,12 +1251,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983258183}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.08, y: 2.95, z: 0.30227292}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: -0.08000004, y: 2.9500003, z: 0.30227292}
   m_LocalScale: {x: 1.2884672, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1208496248}
-  m_RootOrder: 2
+  m_Father: {fileID: 592291522}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &1983258185
 SpriteRenderer:
