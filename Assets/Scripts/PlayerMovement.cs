@@ -9,9 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public int speed = 2;
     public int jumpForce = 2;
 
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +43,5 @@ public class PlayerMovement : MonoBehaviour
         { 
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, jumpForce); 
         }
-
-
     }
 }

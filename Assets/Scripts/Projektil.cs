@@ -24,7 +24,6 @@ public class Projektil : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             World.Instance.isPlayerDead = true;
-            // End game
         }
 
         Destroy(gameObject, 1);
