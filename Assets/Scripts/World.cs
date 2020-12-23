@@ -4,39 +4,47 @@ using UnityEngine.UI;
 
 public class World : MonoBehaviour
 {
+    // World class is using Singleton pattern.
     public static World Instance;
-
-    public bool isPlayerDead;
-    public GameObject projektil;
-
-    private bool isWaiting1 = false;
-    private bool isWaiting2 = false;
-
-    public Text poeni;
-    public Text gameOver;
-    private int counter = 0;
-    float increase = 0.5f;
 
     void Awake()
     {
         Instance = this;
     }
 
-    void Start()
-    {
+    // Boolean value which decides when is game over.
+    public bool isPlayerDead;
+    // Game object prefab representing our projectile.
+    public GameObject projektil;
+    // UI number of points.
+    public Text poeni;
+    // UI game over message.
+    public Text gameOver;
 
-    }
+    // Game score counter.
+    private int counter = 0;
+    // Game projectile spawn speed;
+    float increase = 0.5f;
+    // Decides can we fire another projectile or we should wait.
+    private bool isWaiting1 = false;
+    private bool isWaiting2 = false;
 
-    // Update is called once per frame
+    // Start is called before the first frame update.
+    void Start() { }
+
+    // Update is called once per frame.
     void Update()
     {
         if(!isPlayerDead)
         {
+            // Spawn projectiles from top and right wall.
             SpawnProjectiles();
+            // As counter grows game is becoming harder.
             IncreaseProjectilesPerTime();
         }
         else
         {
+            // If player is dead show game over message.
             gameOver.gameObject.SetActive(true);
             gameOver.text = $"Final score: {counter} points.";
         }
@@ -44,14 +52,18 @@ public class World : MonoBehaviour
 
     private void SpawnProjectiles()
     {
+        // Pattern which we use to delay something, in this case spawning new projectile.
         if (!isWaiting1)
+            // Smaller is value we send in faster the prjectiles spawn. 
             StartCoroutine(ExecuteAfterDelay1(2 / increase));
         if (!isWaiting2)
+            // We divide from three here to make right wall projectiles spawn slower.
             StartCoroutine(ExecuteAfterDelay2(3 / increase));
     }
 
     private void IncreaseProjectilesPerTime()
     {
+        // Projectiles will spawn faster as game counter number grows.
         if (counter > 5)
         {
             increase = 1f;
@@ -78,19 +90,23 @@ public class World : MonoBehaviour
         }
     }
 
-
     private IEnumerator ExecuteAfterDelay1(float seconds)
     {
+        // Signal that projectile is fired and game should wait before firing the new projectile.
         isWaiting1 = true;
         yield return new WaitForSeconds(seconds);
         if(!isPlayerDead)
         {
+            // Create new projectile on coordinates we measured on game scene.
             Instantiate(projektil, new Vector3(Random.Range(-2.7f, 5), 1.7f), new Quaternion());
+            // Game counter for new projectile can start again.
             isWaiting1 = false;
-            poeni.text = $"{counter} points";
+            // Increase the game points counter.
             counter++;
+            // And show counter in UI.
+            poeni.text = $"{counter} points";
+            
         }
-
     }
 
     private IEnumerator ExecuteAfterDelay2(float seconds)
@@ -100,11 +116,14 @@ public class World : MonoBehaviour
         if (!isPlayerDead)
         {
             isWaiting2 = false;
+            // This time we spawn projectiles from right wall, again measured on game scene.
             var proj = Instantiate(projektil, new Vector3(5, Random.Range(-3.2f, 1.5f)), new Quaternion());
+            // Add some speed to projectile, toward left side.
             proj.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.left * 3;
+            // Reduce gracity for this projectile so that it does not fall to the ground too quickly.
             proj.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.01f;
-            poeni.text = $"{counter} points";
             counter++;
+            poeni.text = $"{counter} points";
         }
     }
 }
