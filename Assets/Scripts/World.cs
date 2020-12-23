@@ -12,6 +12,9 @@ public class World : MonoBehaviour
         Instance = this;
     }
 
+    public int currentHealth = 5;
+    private int maxHealth = 5;
+
     // Boolean value which decides when is game over.
     public bool isPlayerDead;
     // Game object prefab representing our projectile.
@@ -20,6 +23,14 @@ public class World : MonoBehaviour
     public Text poeni;
     // UI game over message.
     public Text gameOver;
+
+    public Image healthUI;
+    public Sprite healthUI5;
+    public Sprite healthUI4;
+    public Sprite healthUI3;
+    public Sprite healthUI2;
+    public Sprite healthUI1;
+    public Sprite healthUI0;
 
     // Game score counter.
     private int counter = 0;
@@ -124,6 +135,31 @@ public class World : MonoBehaviour
             proj.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.01f;
             counter++;
             poeni.text = $"{counter} points";
+        }
+    }
+
+    public void ChangeHealth(int ammount)
+    {
+        currentHealth += ammount;
+
+        if(currentHealth < 1)
+        {
+            isPlayerDead = true;
+        }
+
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        switch (currentHealth)
+        {
+            case 5: healthUI.sprite = healthUI5; break;
+            case 4: healthUI.sprite = healthUI4; break;
+            case 3: healthUI.sprite = healthUI3; break;
+            case 2: healthUI.sprite = healthUI2; break;
+            case 1: healthUI.sprite = healthUI1; break;
+            case 0: healthUI.sprite = healthUI0; break;
         }
     }
 }

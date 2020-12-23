@@ -20,7 +20,7 @@ public class Projektil : MonoBehaviour
         // When projectile hit the player make player dead and finish the game.
         if (other.gameObject.name == "Player")
         {
-            World.Instance.isPlayerDead = true;
+            World.Instance.ChangeHealth(-1);
         }
 
         // Cleanup, remove projectile game object after 1 second of delay.
